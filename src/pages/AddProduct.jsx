@@ -1,10 +1,14 @@
 import React from 'react'
 import Navbar from "./../components/navbar.jsx"
+import "./AddProduct.css"
 const AddProduct = () => {
   return (
     <div>
            <Navbar />
-      <h1>Add product page</h1>
+     <div className='addproduct'>
+       <div className='sideform'></div>
+       <div className='cardview'></div>
+     </div>
     </div>
   )
 }

@@ -1,11 +1,11 @@
 .navbar {
   display: flex;
-  display: flex;
   align-items: center;
   justify-content: end;
   padding: 10px;
-  position: sticky;
+  position:fixed;
   top: 0px;
+  right:0px;
 }
 .nav-item {
   margin: 10px;
