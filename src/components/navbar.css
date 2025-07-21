@@ -16,10 +16,11 @@
   display: flex;
   align-items: center;
   gap: 5px;
+  border:2px solid transparent;
 }
 
 .nav-item.active {
-  border:1px solid black;
+  border:2px solid black;
   padding:5px;
   border-radius:5px;
   color:red;

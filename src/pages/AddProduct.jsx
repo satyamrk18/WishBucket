@@ -7,7 +7,14 @@ const AddProduct = () => {
            <Navbar />
      <div className='addproduct'>
        <div className='sideform'></div>
-       <div className='cardview'></div>
+       <div className='cardview'>
+        {/* main card */}
+   <div className='card'>
+ 
+
+   </div>
+
+       </div>
      </div>
     </div>
   )
