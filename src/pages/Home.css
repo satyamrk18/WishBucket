@@ -18,7 +18,7 @@ body {
     #ffd2a5   /* soft peach */
   );
   background-size: 600% 600%;
-  animation: gradientMove 15s ease infinite;
+  animation: gradientMove 6s ease infinite;
 }
 
 @keyframes gradientMove {
