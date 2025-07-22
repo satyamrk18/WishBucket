@@ -37,7 +37,14 @@ const AddProduct = () => {
             <input type="date" defaultValue={today} name="Manifestation" />
             <label>Expected Date To Achive</label>
             <input type="date" name="Expected Date Of achivement" />
-
+            <label>Priority</label>
+            <select defaultValue="Medium">
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+            <label>Description</label>
+              <textarea rows="5" />
             <button>Submit</button>
           </form>
         </div>
