@@ -1,35 +1,30 @@
-h1{
-    color:red;
+h1 {
+  color: red;
 }
-.addproduct
-{
-    width:100%;
-    height:100vh;
-    margin:0 auto;
-    display:flex;
-    flex-direction:row;
+.addproduct {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
 }
-.sideform
-{
-
-    width:30%;
-    background-color:red;
-    height:100%;
+.sideform {
+  width:60%;
+  background-color: pink;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.cardview
-{
-    width:70%;
-    background-color:pink;
-    height:100%;
-    display: flex;
-    align-items:center;
-    justify-content:center;
+.cardview {
+  width:40%;
+  height: 100%;
 }
-.card
-{
-    min-height:80%;
-    height:auto;
-    width:70%;
-    border:2px solid black;
-    margin-top:50px;
+.card {
+  min-height: 80%;
+  height: auto;
+  width:90%;
+  border: 2px solid black;
+ margin:100px auto;
+ border-radius:10px;
 }
