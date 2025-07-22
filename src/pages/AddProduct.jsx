@@ -21,7 +21,7 @@ const AddProduct = () => {
             <label>Product Image</label>
             <input
               type="text"
-              placeholder="inter product image URL"
+              placeholder="Enter product image address"
               name="product image url"
             />
             {/* more image feature remain */}
@@ -31,10 +31,10 @@ const AddProduct = () => {
               placeholder="Product price"
               name="product price"
             />
-            <lable>Product Link</lable>
+            <label>Product Link</label>
             <input type="text" placeholder="Product Link" name="product Link" />
             <label>Date Of Manifestation</label>
-            <input type="date" defaultValue={today} name="Manifestation"/>
+            <input type="date" defaultValue={today} name="Manifestation" />
             <label>Expected Date To Achive</label>
             <input type="date" name="Expected Date Of achivement" />
 
@@ -43,7 +43,14 @@ const AddProduct = () => {
         </div>
         <div className="cardview">
           {/* main card */}
-          <div className="card"></div>
+          <div className="card">
+            <div className="product-image">
+              <img
+                src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRqVzAutpwFoSuUFv1vIyP-ggD2AsQtI5_hDkDiCzC1SUvi9icNxapIckvvbPS0V2x0Uq96wJBnNY4ps16r5IPd7MIO1yOwcaycP77NyaXY"
+                alt="product"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
