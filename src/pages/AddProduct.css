@@ -1,6 +1,10 @@
 * {
   font-family: sans-serif;
 }
+.navbar
+{
+  position:relative;
+}
 .addproduct {
   width: 100%;
   height: 100vh;
@@ -107,7 +111,7 @@ textarea:focus {
   height: 100%;
 }
 .card {
-  min-height: 80%;
+  min-height:95%;
   height: 80%;
   width: 90%;
   border: 2px solid black;
@@ -120,7 +124,7 @@ textarea:focus {
 
 /* cards all feild edits */
 .product-image {
-  height: 50%;
+  height:40%;
   width: 100%;
   border-radius: 10px;
   border: 1px solid gray;
@@ -133,6 +137,14 @@ textarea:focus {
   height: auto;
   width: 100%;
   border-radius: 10px;
+}
+.information {
+  height:60%;
+  width: 100%;
+  overflow-x: hidden;
+}
+.information::-webkit-scrollbar {
+  display: none;
 }
 .title {
   width: 100%;
@@ -164,12 +176,51 @@ textarea:focus {
   justify-content: space-evenly;
 }
 .price p {
-  height:10px;
+  height: 10px;
   width: 25%;
   border: 1px solid black;
   background-color: rgba(78, 68, 68, 0.084);
   border-radius: 5px;
-  display:flex;
-  align-items:center;
-  padding:10px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.dates {
+  height: auto;
+  width: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.dt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid black;
+  background-color: rgba(78, 68, 68, 0.084);
+  border-radius: 5px;
+  display: flex;
+  padding: 5px;
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.description p {
+  height: fit-content;
+  min-height: 150px;
+  width:80%;
+  border: 1px solid black;
+  background-color: rgba(78, 68, 68, 0.084);
+  border-radius: 5px;
+  overflow-y:hidden;
+}
+.description p::-webkit-scrollbar
+{
+  display:none;
 }

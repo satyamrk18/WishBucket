@@ -3,7 +3,7 @@ import Navbar from "./../components/navbar.jsx";
 import "./AddProduct.css";
 import defaultIMG from "./../assets/default-product-image.png";
 import { useState, useEffect } from "react";
-import { Archive } from "lucide-react";
+import { CalendarHeart, CalendarSearch } from "lucide-react";
 const AddProduct = () => {
   const [today, setToday] = useState("");
   const [product, setProduct] = useState([]);
@@ -37,7 +37,9 @@ const AddProduct = () => {
 
   return (
     <div>
-      <Navbar />
+<div className="navbar">
+  <Navbar />
+</div>
       <div className="addproduct">
         <div className="sideform">
           <form>
@@ -81,15 +83,28 @@ const AddProduct = () => {
             <label>Date Of Manifestation</label>
             <input type="date" defaultValue={today} name="Manifestation" />
             <label>Expected Date To Achive</label>
-            <input type="date" name="Expected Date Of achivement" />
+            <input
+              type="date"
+              name="Expected Date Of achivement"
+              onChange={(e) => {
+                setNewProduct({ ...newproduct, archivedate: e.target.value });
+              }}
+            />
             <label>Priority</label>
-            <select defaultValue="Medium">
+            <select
+              defaultValue="Medium"
+              onChange={(e) =>
+                setNewProduct({ ...newproduct, priority: e.target.value })
+              }
+            >
               <option value="High">High</option>
               <option value="Medium">Medium</option>
               <option value="Low">Low</option>
             </select>
             <label>Description</label>
-            <textarea rows="5" />
+            <textarea rows="5"  onChange={(e)=>{
+              setNewProduct({...newproduct, description:e.target.value})
+            }}/>
             <button>Submit</button>
           </form>
         </div>
@@ -100,18 +115,43 @@ const AddProduct = () => {
             <div className="product-image">
               <img src={newproduct.image || defaultIMG} alt="product" />
             </div>
-            {/* title */}
-            <div className="title">
-              <h3>Title :</h3>
-              <p>{newproduct.title}</p>
-            </div>
-            <div className="title">
-              <h3>Link :</h3>
-              <p>{newproduct.link}</p>
-            </div>
-            <div className="price">
-              <h3>Price :</h3>
-              <p>₹ {newproduct.price}</p>
+            <div className="information">
+              {/* title */}
+              <div className="title">
+                <h3>Title :</h3>
+                <p>{newproduct.title}</p>
+              </div>
+              <div className="title">
+                <h3>Link :</h3>
+                <p>{newproduct.link}</p>
+              </div>
+              <div className="price">
+                <h3>Price :</h3>
+                <p>₹ {newproduct.price}</p>
+              </div>
+              <div className="dates">
+                <div className="dt">
+                  <h3>Date Of Manifestation</h3>
+                  <p>
+                    {" "}
+                    <CalendarHeart /> {today}
+                  </p>
+                </div>
+                <div className="dt">
+                  <h3>Expected Date To Achive </h3>
+                  <p>
+                    <CalendarSearch /> {newproduct.archivedate}
+                  </p>
+                </div>
+              </div>
+              <div className="title">
+                <h3>Priority :</h3>
+                <p>{newproduct.priority || "Medium"}</p>
+              </div>
+              <div className="description">
+                <h3>Description :</h3>
+                <p>{newproduct.description}</p>
+              </div>
             </div>
           </div>
         </div>
