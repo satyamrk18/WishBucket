@@ -37,10 +37,10 @@ const AddProduct = () => {
 
   return (
     <div>
-<div className="navbar">
-  <Navbar />
-</div>
       <div className="addproduct">
+        {/* <div className="navbar">
+          <Navbar />
+        </div> */}
         <div className="sideform">
           <form>
             <label>Product Name</label>
@@ -102,9 +102,12 @@ const AddProduct = () => {
               <option value="Low">Low</option>
             </select>
             <label>Description</label>
-            <textarea rows="5"  onChange={(e)=>{
-              setNewProduct({...newproduct, description:e.target.value})
-            }}/>
+            <textarea
+              rows="5"
+              onChange={(e) => {
+                setNewProduct({ ...newproduct, description: e.target.value });
+              }}
+            />
             <button>Submit</button>
           </form>
         </div>

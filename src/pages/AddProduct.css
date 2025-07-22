@@ -1,17 +1,24 @@
 * {
   font-family: sans-serif;
 }
-.navbar
-{
-  position:relative;
-}
+
 .addproduct {
   width: 100%;
   height: 100vh;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
+  position:relative;
 }
+/* .navbar
+{
+  position:absolute;
+  background-color:red;
+  left:0px;
+  display:inline-block;
+  width:fit-content;
+ 
+} */
 .sideform {
   width: 60%;
   background-color: pink;
@@ -109,6 +116,9 @@ textarea:focus {
 .cardview {
   width: 40%;
   height: 100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .card {
   min-height:95%;
