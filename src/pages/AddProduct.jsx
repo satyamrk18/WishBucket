@@ -1,14 +1,39 @@
 import React from "react";
 import Navbar from "./../components/navbar.jsx";
 import "./AddProduct.css";
+import defaultIMG from "./../assets/default-product-image.png"
 import { useState, useEffect } from "react";
+import { Archive } from "lucide-react";
 const AddProduct = () => {
   const [today, setToday] = useState("");
+  const [product, setProduct] = useState([]);
+  const [error, seterror] = useState("");
+  const [newproduct, setNewProduct] = useState({
+    id: "",
+    title: "",
+    image: "",
+    price: "",
+    link: "",
+    today: "",
+    archivedate: "",
+    priority: "",
+    description: "",
+  });
   useEffect(() => {
     const date = new Date();
     const formatedDate = date.toISOString().split("T")[0];
     setToday(formatedDate);
   }, []);
+  useEffect(() => {
+    //title character dependency
+    if (newproduct.title.length > 25) {
+      alert("Only 25 characters allowed in title");
+      setNewProduct((prev) => ({
+        ...prev,
+        title: prev.title.slice(0, 25),
+      }));
+    }
+  }, [newproduct.title]);
 
   return (
     <div>
@@ -17,22 +42,36 @@ const AddProduct = () => {
         <div className="sideform">
           <form>
             <label>Product Name</label>
-            <input type="text" placeholder="Product Name" name="product name" />
+            <input
+              type="text"
+              placeholder="Product Name"
+              name="product name"
+              onChange={(e) => {
+                setNewProduct({ ...newproduct, title: e.target.value });
+              }}
+            />
             <label>Product Image</label>
             <input
               type="text"
               placeholder="Enter product image address"
-              name="product image url"
+              name="product Link"
+              onChange={(e) => {
+                setNewProduct({ ...newproduct, link: e.target.value });
+              }}
             />
             {/* more image feature remain */}
+            <label>Product Link</label>
+            <input
+              type="text"
+              placeholder="Product Link"
+              name="product image url"
+            />
             <label>Product Price ₹</label>
             <input
               type="number"
               placeholder="Product price"
               name="product price"
             />
-            <label>Product Link</label>
-            <input type="text" placeholder="Product Link" name="product Link" />
             <label>Date Of Manifestation</label>
             <input type="date" defaultValue={today} name="Manifestation" />
             <label>Expected Date To Achive</label>
@@ -44,18 +83,24 @@ const AddProduct = () => {
               <option value="Low">Low</option>
             </select>
             <label>Description</label>
-              <textarea rows="5" />
+            <textarea rows="5" />
             <button>Submit</button>
           </form>
         </div>
         <div className="cardview">
           {/* main card */}
           <div className="card">
+            {/* image */}
             <div className="product-image">
               <img
-                src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRqVzAutpwFoSuUFv1vIyP-ggD2AsQtI5_hDkDiCzC1SUvi9icNxapIckvvbPS0V2x0Uq96wJBnNY4ps16r5IPd7MIO1yOwcaycP77NyaXY"
+                src={newproduct.link ||defaultIMG }
                 alt="product"
               />
+            </div>
+            {/* title */}
+            <div className="title">
+              <h3>Title :</h3>
+              <p>{newproduct.title}</p>
             </div>
           </div>
         </div>
