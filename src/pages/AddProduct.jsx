@@ -4,19 +4,18 @@ import "./AddProduct.css";
 import defaultIMG from "./../assets/default-product-image.png";
 import { useState, useEffect } from "react";
 import { CalendarHeart, CalendarSearch } from "lucide-react";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 const AddProduct = () => {
   const [today, setToday] = useState("");
   const [product, setProduct] = useState([]);
   const [newproduct, setNewProduct] = useState({
-    id: "",
     title: "",
     link: "",
     image: "",
     price: "",
     today: "",
     archivedate: "",
-    priority: "",
+    priority: "Medium",
     description: "",
   });
   useEffect(() => {
@@ -27,19 +26,49 @@ const AddProduct = () => {
   useEffect(() => {
     //title character dependency
     if (newproduct.title.length > 25) {
-      toast.error("Oops! Your title is a bit too long. Please limit it to 25 characters.")
-      setNewProduct({...newproduct, title:""});
-      return; 
+      toast.error(
+        "Oops! Your title is a bit too long. Please limit it to 25 characters."
+      );
+      setNewProduct({ ...newproduct, title: "" });
+      return;
     }
 
     if (newproduct.description.length > 100) {
       toast.error(
-        "Oops! Your description is a bit too long. Please limit it to 100 characters.");
-      setNewProduct({...newproduct, description:""});
+        "Oops! Your description is a bit too long. Please limit it to 100 characters."
+      );
+      setNewProduct({ ...newproduct, description: "" });
       return;
     }
   }, [newproduct.title, newproduct.description]);
-
+  //save data
+  const saveProduct = () => {
+    if (!newproduct.title.trim()) {
+      toast.error("opps! The title feild remain empty, please complete it .");
+      return;
+    }
+    if (!newproduct.link.trim()) {
+      toast.error("opps! The Product Link remain empty, please complete it .");
+      return;
+    }
+    if (!newproduct.description.trim()) {
+      toast.error(
+        "opps! The description feild remain empty, please complete it ."
+      );
+      return;
+    } else {
+      setNewProduct({
+        ...newproduct,
+        title: "",
+        link: "",
+        image: "",
+        archivedate: "",
+        priority: "",
+        price: "",
+        description: "",
+      });
+    }
+  };
   return (
     <div>
       <div className="addproduct">
@@ -62,6 +91,7 @@ const AddProduct = () => {
             <input
               type="text"
               placeholder="Enter product image address"
+              value={newproduct.image}
               name="product Link"
               onChange={(e) => {
                 setNewProduct({ ...newproduct, image: e.target.value });
@@ -73,6 +103,7 @@ const AddProduct = () => {
               type="text"
               placeholder="Product Link"
               name="product image url"
+              value={newproduct.link}
               onChange={(e) => {
                 setNewProduct({ ...newproduct, link: e.target.value });
               }}
@@ -94,6 +125,7 @@ const AddProduct = () => {
                 <label>Priority</label>
                 <select
                   defaultValue="Medium"
+                  value={newproduct.priority}
                   onChange={(e) =>
                     setNewProduct({ ...newproduct, priority: e.target.value })
                   }
@@ -124,7 +156,9 @@ const AddProduct = () => {
                 setNewProduct({ ...newproduct, description: e.target.value });
               }}
             />
-            <button>Submit</button>
+            <button type="button" onClick={saveProduct}>
+              Submit
+            </button>
           </form>
         </div>
         <div className="cardview">
@@ -146,7 +180,7 @@ const AddProduct = () => {
               </div>
               <div className="price">
                 <h3>Price :</h3>
-                <p>₹ {newproduct.price}</p>
+                <p>₹ {newproduct.price == "" ? 0 : newproduct.price} /-</p>
               </div>
               <div className="dates">
                 <div className="dt">
@@ -175,7 +209,7 @@ const AddProduct = () => {
           </div>
         </div>
       </div>
-       <Toaster position="top-center" reverseOrder={false} />
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 };
