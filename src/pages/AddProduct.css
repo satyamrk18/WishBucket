@@ -8,7 +8,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  position:relative;
+  position: relative;
 }
 /* .navbar
 {
@@ -97,7 +97,36 @@ textarea:focus {
   cursor: pointer;
   transition: background-color 0.3s;
 }
-
+.dates {
+  height: auto;
+  width: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.dt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid black;
+  background-color: rgba(78, 68, 68, 0.084);
+  border-radius: 5px;
+  display: flex;
+  padding: 5px;
+}
+.price-priority-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 35px;
+}
+.price-priority-container input {
+  width: 80%;
+}
 .sideform button:hover {
   background-color: #0056b3;
 }
@@ -116,12 +145,12 @@ textarea:focus {
 .cardview {
   width: 40%;
   height: 100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .card {
-  min-height:95%;
+  min-height: 95%;
   height: 80%;
   width: 90%;
   border: 2px solid black;
@@ -134,7 +163,7 @@ textarea:focus {
 
 /* cards all feild edits */
 .product-image {
-  height:40%;
+  height: 40%;
   width: 100%;
   border-radius: 10px;
   border: 1px solid gray;
@@ -146,10 +175,10 @@ textarea:focus {
 .product-image img {
   height: auto;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 7px;
 }
 .information {
-  height:60%;
+  height: 60%;
   width: 100%;
   overflow-x: hidden;
 }
@@ -194,27 +223,18 @@ textarea:focus {
   display: flex;
   align-items: center;
   padding: 10px;
+  overflow-x:hidden;
 }
-
-.dates {
-  height: auto;
-  width: fit-content;
+.price p::-webkit-scrollbar
+{
+  display:none;
+}
+.dates-container {
   width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-.dt {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  border: 1px solid black;
-  background-color: rgba(78, 68, 68, 0.084);
-  border-radius: 5px;
-  display: flex;
-  padding: 5px;
+  justify-content: space-evenly;
+  gap: 50px;
 }
 .description {
   display: flex;
@@ -224,13 +244,12 @@ textarea:focus {
 .description p {
   height: fit-content;
   min-height: 150px;
-  width:80%;
+  width: 80%;
   border: 1px solid black;
   background-color: rgba(78, 68, 68, 0.084);
   border-radius: 5px;
-  overflow-y:hidden;
+  overflow-y: hidden;
 }
-.description p::-webkit-scrollbar
-{
-  display:none;
+.description p::-webkit-scrollbar {
+  display: none;
 }

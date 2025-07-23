@@ -28,12 +28,18 @@ const AddProduct = () => {
     //title character dependency
     if (newproduct.title.length > 25) {
       alert("Only 25 characters allowed in title");
-      setNewProduct((prev) => ({
-        ...prev,
-        title: prev.title.slice(0, 25),
-      }));
+      setNewProduct({...newproduct, title:""});
+      return;
     }
-  }, [newproduct.title]);
+
+    if (newproduct.description.length > 100) {
+      alert(
+        "Oops! Your description is a bit too long. Please limit it to 100 characters."
+      );
+      setNewProduct({...newproduct, description:""});
+      return;
+    }
+  }, [newproduct.title, newproduct.description]);
 
   return (
     <div>
@@ -47,6 +53,7 @@ const AddProduct = () => {
             <input
               type="text"
               placeholder="Product Name"
+              value={newproduct.title}
               name="product name"
               onChange={(e) => {
                 setNewProduct({ ...newproduct, title: e.target.value });
@@ -71,39 +78,49 @@ const AddProduct = () => {
                 setNewProduct({ ...newproduct, link: e.target.value });
               }}
             />
-            <label>Product Price ₹</label>
-            <input
-              type="number"
-              placeholder="Product price"
-              name="product price"
-              onChange={(e) => {
-                setNewProduct({ ...newproduct, price: e.target.value });
-              }}
-            />
-            <label>Date Of Manifestation</label>
-            <input type="date" defaultValue={today} name="Manifestation" />
-            <label>Expected Date To Achive</label>
-            <input
-              type="date"
-              name="Expected Date Of achivement"
-              onChange={(e) => {
-                setNewProduct({ ...newproduct, archivedate: e.target.value });
-              }}
-            />
-            <label>Priority</label>
-            <select
-              defaultValue="Medium"
-              onChange={(e) =>
-                setNewProduct({ ...newproduct, priority: e.target.value })
-              }
-            >
-              <option value="High">High</option>
-              <option value="Medium">Medium</option>
-              <option value="Low">Low</option>
-            </select>
+            <div className="dates-container">
+              <label>Date Of Manifestation</label>
+              <input type="date" defaultValue={today} name="Manifestation" />
+              <label>Expected Date To Achive</label>
+              <input
+                type="date"
+                name="Expected Date Of achivement"
+                onChange={(e) => {
+                  setNewProduct({ ...newproduct, archivedate: e.target.value });
+                }}
+              />
+            </div>
+            <div className="price-priority-container">
+              <div>
+                <label>Priority</label>
+                <select
+                  defaultValue="Medium"
+                  onChange={(e) =>
+                    setNewProduct({ ...newproduct, priority: e.target.value })
+                  }
+                >
+                  <option value="High">High</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Low">Low</option>
+                </select>
+              </div>
+              <div>
+                <label>Product Price ₹</label>
+                <input
+                  type="number"
+                  placeholder="Product price"
+                  value={newproduct.price}
+                  name="product price"
+                  onChange={(e) => {
+                    setNewProduct({ ...newproduct, price: e.target.value });
+                  }}
+                />
+              </div>
+            </div>
             <label>Description</label>
             <textarea
               rows="5"
+              value={newproduct.description}
               onChange={(e) => {
                 setNewProduct({ ...newproduct, description: e.target.value });
               }}
