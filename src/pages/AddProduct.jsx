@@ -56,18 +56,30 @@ const AddProduct = () => {
         "opps! The description feild remain empty, please complete it ."
       );
       return;
-    } else {
-      setNewProduct({
-        ...newproduct,
-        title: "",
-        link: "",
-        image: "",
-        archivedate: "",
-        priority: "",
-        price: "",
-        description: "",
-      });
     }
+
+    // Add today's date to product
+    const newProductEntry = { ...newproduct, today };
+
+    // Add new product to current list
+    const updatedProducts = [...product, newProductEntry];
+
+    // Update state and localStorage
+    setProduct(updatedProducts);
+    localStorage.setItem("products", JSON.stringify(updatedProducts));
+
+    toast.success("Product saved successfully!");
+
+    setNewProduct({
+      ...newproduct,
+      title: "",
+      link: "",
+      image: "",
+      archivedate: "",
+      priority: "",
+      price: "",
+      description: "",
+    });
   };
   return (
     <div>
@@ -124,7 +136,6 @@ const AddProduct = () => {
               <div>
                 <label>Priority</label>
                 <select
-                  defaultValue="Medium"
                   value={newproduct.priority}
                   onChange={(e) =>
                     setNewProduct({ ...newproduct, priority: e.target.value })
