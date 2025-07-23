@@ -1,10 +1,10 @@
 import React from "react";
-import Navbar from "./../components/navbar.jsx";
+import {Link} from "react-router-dom"
 import "./AddProduct.css";
 import { useNavigate } from "react-router-dom";
 import defaultIMG from "./../assets/default-product-image.png";
 import { useState, useEffect } from "react";
-import { CalendarHeart, CalendarSearch } from "lucide-react";
+import { CalendarHeart, CalendarSearch,House, PackageSearch, } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 const AddProduct = () => {
   const navigate = useNavigate(); // navigator after successfully submission
@@ -89,9 +89,10 @@ const AddProduct = () => {
   return (
     <div>
       <div className="addproduct">
-        {/* <div className="navbar">
-          <Navbar />
-        </div> */}
+         <div className="p-navbar">
+          <Link to={"/"} className="item"><House /></Link>
+          <Link to={"/product"} className="item"><PackageSearch /></Link>
+        </div> 
         <div className="sideform">
           <form>
             <label>Product Name</label>

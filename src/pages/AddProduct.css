@@ -10,15 +10,24 @@
   flex-direction: row;
   position: relative;
 }
-/* .navbar
+.p-navbar {
+  width:15%;
+  padding:5px;
+  position: absolute;
+  left: 10px;
+  top: 35px;
+  display: flex;
+  align-items: center;
+  gap:25px;
+}
+.item
 {
-  position:absolute;
-  background-color:red;
-  left:0px;
-  display:inline-block;
-  width:fit-content;
- 
-} */
+  border:2px solid black;
+  padding:10px;
+  border-radius:5px;
+  text-decoration:none;
+  color:black;
+}
 .sideform {
   width: 60%;
   background-color: pink;
@@ -98,7 +107,7 @@ textarea:focus {
   transition: background-color 0.3s;
 }
 .dates {
-  height:100px;
+  height: 100px;
   width: fit-content;
   width: 100%;
   display: flex;
@@ -223,11 +232,10 @@ textarea:focus {
   display: flex;
   align-items: center;
   padding: 10px;
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
-.price p::-webkit-scrollbar
-{
-  display:none;
+.price p::-webkit-scrollbar {
+  display: none;
 }
 .dates-container {
   width: 100%;
