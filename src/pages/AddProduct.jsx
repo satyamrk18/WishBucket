@@ -4,10 +4,10 @@ import "./AddProduct.css";
 import defaultIMG from "./../assets/default-product-image.png";
 import { useState, useEffect } from "react";
 import { CalendarHeart, CalendarSearch } from "lucide-react";
+import toast, { Toaster } from 'react-hot-toast';
 const AddProduct = () => {
   const [today, setToday] = useState("");
   const [product, setProduct] = useState([]);
-  const [error, seterror] = useState("");
   const [newproduct, setNewProduct] = useState({
     id: "",
     title: "",
@@ -27,15 +27,14 @@ const AddProduct = () => {
   useEffect(() => {
     //title character dependency
     if (newproduct.title.length > 25) {
-      alert("Only 25 characters allowed in title");
+      toast.error("Oops! Your title is a bit too long. Please limit it to 25 characters.")
       setNewProduct({...newproduct, title:""});
-      return;
+      return; 
     }
 
     if (newproduct.description.length > 100) {
-      alert(
-        "Oops! Your description is a bit too long. Please limit it to 100 characters."
-      );
+      toast.error(
+        "Oops! Your description is a bit too long. Please limit it to 100 characters.");
       setNewProduct({...newproduct, description:""});
       return;
     }
@@ -176,6 +175,7 @@ const AddProduct = () => {
           </div>
         </div>
       </div>
+       <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 };
