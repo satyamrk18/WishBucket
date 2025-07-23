@@ -1,11 +1,13 @@
 import React from "react";
 import Navbar from "./../components/navbar.jsx";
 import "./AddProduct.css";
+import { useNavigate } from "react-router-dom";
 import defaultIMG from "./../assets/default-product-image.png";
 import { useState, useEffect } from "react";
 import { CalendarHeart, CalendarSearch } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 const AddProduct = () => {
+  const navigate = useNavigate(); // navigator after successfully submission
   const [today, setToday] = useState("");
   const [product, setProduct] = useState([]);
   const [newproduct, setNewProduct] = useState({
@@ -80,6 +82,9 @@ const AddProduct = () => {
       price: "",
       description: "",
     });
+    setTimeout(() => {
+      navigate("/product");
+    }, 1000);
   };
   return (
     <div>
