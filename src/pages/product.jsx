@@ -1,5 +1,10 @@
+// Product.jsx
+
 import React, { useEffect, useState } from "react";
-import Navbar from "./../components/navbar.jsx";
+import { Link } from "react-router-dom";
+import defaultIMG from "./../assets/default-product-image.png";
+import "./Product.css"; // styling file for product display
+import { House, PackagePlus } from "lucide-react";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
@@ -10,12 +15,15 @@ const Product = () => {
   }, []);
 
   return (
-    <div>
-      <Navbar />
-      <h1>Product page</h1>
+    <div className="product-page">
+      <div className="p-navbar">
+        <Link to="/" className="item"><House /></Link>
+        <Link to="/addproduct" className="item"><PackagePlus /></Link>
+      </div>
+      <h1>Product Page</h1>
       <div className="card">
         {products.length > 0 ? (
-          products.map((allproduct, index) => {
+          products.map((product, index) => {
             const {
               title,
               image,
@@ -25,33 +33,35 @@ const Product = () => {
               today,
               archivedate,
               description,
-            } = allproduct;
+            } = product;
 
             return (
               <div className="product-card" key={index}>
                 <div className="p-image">
-                  <img src={image} alt="product" />
+                  <img src={image || defaultIMG} alt="product" />
                 </div>
                 <div className="other-info">
                   <h2>Title: {title}</h2>
                   <h2>
-                    URL: <a href={link} target="_blank" rel="noopener noreferrer">{link}</a>
+                    Link: <a href={link} target="_blank" rel="noreferrer">{link}</a>
                   </h2>
                   <div className="other">
                     <h2>Price: ₹{price}</h2>
                     <h2>Priority: {priority}</h2>
                   </div>
                   <div className="other">
-                    <h2>Register Date: {today}</h2>
-                    <h2>Expected Date: {archivedate}</h2>
+                    <h2>Registered: {today}</h2>
+                    <h2>Expected: {archivedate}</h2>
                   </div>
-                  <div className="description"><h2>Description : {description}</h2></div>
+                  <div className="description">
+                    <p>{description}</p>
+                  </div>
                 </div>
               </div>
             );
           })
         ) : (
-          <p>No product found</p>
+          <p>No products found.</p>
         )}
       </div>
     </div>

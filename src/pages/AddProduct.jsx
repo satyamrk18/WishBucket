@@ -83,7 +83,7 @@ const AddProduct = () => {
       link: "",
       image: "",
       archivedate: "",
-      priority: "",
+      priority: "Medium",
       price: "",
       description: "",
     });
@@ -133,7 +133,14 @@ const AddProduct = () => {
             />
             <div className="dates-container">
               <label>Date Of Manifestation</label>
-              <input type="date" defaultValue={today} name="Manifestation" />
+              <input
+                type="date"
+                value={newproduct.today || today}
+                name="Manifestation"
+                onChange={(e) => {
+                  setNewProduct({ ...newproduct, today: e.target.value });
+                }}
+              />
               <label>Expected Date To Achive</label>
               <input
                 type="date"
