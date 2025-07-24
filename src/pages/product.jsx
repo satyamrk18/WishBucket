@@ -5,7 +5,7 @@ const product = () => {
 
   const [products, setProducts] = useState([])
   useEffect(() => {
-    const products =JSON.parse( localStorage.getItem("products") || []);
+    const products =JSON.parse( localStorage.getItem("products"));
     setProducts(products)
   }, []);
   return (
@@ -18,7 +18,7 @@ const product = () => {
       {
           const {title,image,link,price,priority,today,archivedate,description} = allproduct;
           return (
-            <div><img src={image}/></div>
+            <div>{title}</div>
           )
       })
      }

@@ -21,6 +21,11 @@ const AddProduct = () => {
     description: "",
   });
   useEffect(() => {
+    //stores the product in prexisting array
+ const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
+  setProduct(storedProducts);
+
+
     const date = new Date();
     const formatedDate = date.toISOString().split("T")[0];
     setToday(formatedDate);
