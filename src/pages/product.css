@@ -1,0 +1,27 @@
+.product-card{
+ border:2px solid black;
+ height:auto;
+ width:fit-content;
+ display:flex;
+ align-items:center;
+ flex-direction:column;
+}
+
+.product-card
+{
+ border:2px solid black;
+ height:auto;
+ width:fit-content;
+ display:flex;
+ align-items:center;
+ flex-direction:column;
+}
+.other-info
+{
+    display:flex;
+    flex-direction:column;
+}
+.other-info{
+    display:flex;
+    flex-direction:row;
+}
