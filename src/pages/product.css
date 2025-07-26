@@ -1,13 +1,14 @@
 /* Product.css */
-
-.card {
-  display: flex;
-  flex-wrap: wrap;
+.cards {
+  background-color: red;
+  padding:50px;
   gap: 20px;
-  padding: 20px;
-  justify-content: center;
+  display: flex;
+  height: auto;
+  justify-content:center;
+  width:auto;
+  overflow-x:hidden;
 }
-
 .product-card {
   background-color: #fdfdfd;
   width: 300px;
@@ -15,6 +16,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.2s ease;
+
 }
 
 .product-card:hover {

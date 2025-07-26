@@ -21,7 +21,7 @@ const Product = () => {
         <Link to="/addproduct" className="item"><PackagePlus /></Link>
       </div>
       <h1>Product Page</h1>
-      <div className="card">
+      <div className="cards">
         {products.length > 0 ? (
           products.map((product, index) => {
             const {
