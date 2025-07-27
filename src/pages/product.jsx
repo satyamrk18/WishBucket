@@ -14,6 +14,9 @@ const Product = () => {
     setProducts(storedProducts);
   }, []);
 
+//priority grouping
+
+
   return (
     <div className="product-page">
       <div className="p-navbar">
@@ -34,7 +37,6 @@ const Product = () => {
               archivedate,
               description,
             } = product;
-
             return (
               <div className="product-card" key={index}>
                 <div className="p-image">

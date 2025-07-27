@@ -6,29 +6,5 @@ body {
   height: 100vh;
   padding-top: 50px;
   box-sizing: border-box;
-
-  background: linear-gradient(135deg, 
-    #ffcc70,  /* light orange */
-    #fcbfdb,  /* light pink */
-    #ff9fdc,  /* pink */
-    #c6a6ff,  /* lavender */
-    #9ad0f5,  /* baby blue */
-    #4fdfff,  /* sky blue */
-    #70e3ff,  /* light cyan */
-    #ffd2a5   /* soft peach */
-  );
-  background-size: 600% 600%;
-  animation: gradientMove 6s ease infinite;
-}
-
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 100%;
-  }
-  50% {
-    background-position: 100% 0%;
-  }
-  100% {
-    background-position: 0% 100%;
-  }
+  
 }
