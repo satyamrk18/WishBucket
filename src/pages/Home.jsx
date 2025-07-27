@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import ValueCards from "./../components/valuecards.jsx";
 import Product from "./product.jsx";
 import "./Home.css";
-import EmptyProduct from "./emptyproduct.jsx"
+import EmptyProduct from "./emptyproduct.jsx";
 const Home = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -13,7 +13,7 @@ const Home = () => {
 
   const totalItems = products.length;
   const totalPrice = products.reduce(
-    (acc, product) => acc + (Number(product.price) || 0.00),
+    (acc, product) => acc + (Number(product.price) || 0.0),
     0
   );
 
@@ -23,17 +23,19 @@ const Home = () => {
       <div className="valuecards-container">
         <ValueCards title="Total Items" value={totalItems} />
         <ValueCards title="Total Price" value={`₹${totalPrice}`} />
-        <ValueCards title="Total Items" value={3} />
+        <ValueCards
+          title="Total Priority"
+          value={`${products.length == 0 ? 0 : 3}`}
+        />
       </div>
       <div>
-        {
-          products.length > 0 ?
-          ( <EmptyProduct />):
+        {products.length > 0 ? (
+          <Product />
+        ) : (
           <div>
-           <Product />
+            <EmptyProduct />
           </div>
-        }
-       
+        )}
       </div>
     </div>
   );
