@@ -1,20 +1,31 @@
-import React from "react";
 import Navbar from "./../components/navbar.jsx";
+import { useEffect, useState } from "react";
 import ValueCards from "./../components/valuecards.jsx";
 import Product from "./product.jsx";
 import "./Home.css";
 const Home = () => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const stored = JSON.parse(localStorage.getItem("products"));
+    setProducts(stored || []);
+  }, []);
+
+  const totalItems = products.length;
+  const totalPrice = products.reduce(
+    (acc, product) => acc + (Number(product.price) || 0),
+    0
+  );
+
   return (
     <div className="container">
       <Navbar />
       <div className="valuecards-container">
-        <ValueCards title="Total Items" value={10} />
-        <ValueCards title="Total Price" value={10} />{" "}
+        <ValueCards title="Total Items" value={totalItems} />
+        <ValueCards title="Total Price" value={`₹${totalPrice}`} />
+        <ValueCards title="Total Items" value={3} />
         {/* price rendering remain */}
-        <ValueCards title="Total Items" value={10} />
       </div>
       <div>
-        <h1>Product Cards</h1>
         <Product />
       </div>
     </div>
