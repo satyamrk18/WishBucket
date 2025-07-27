@@ -1,15 +1,21 @@
-import React from "react";
-import {Link} from "react-router-dom"
+import React, { use } from "react";
+import { Link } from "react-router-dom";
 import "./AddProduct.css";
 import { useNavigate } from "react-router-dom";
 import defaultIMG from "./../assets/default-product-image.png";
 import { useState, useEffect } from "react";
-import { CalendarHeart, CalendarSearch,House, PackageSearch, } from "lucide-react";
+import {
+  CalendarHeart,
+  CalendarSearch,
+  House,
+  PackageSearch,
+} from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 const AddProduct = () => {
   const navigate = useNavigate(); // navigator after successfully submission
   const [today, setToday] = useState("");
   const [product, setProduct] = useState([]);
+  const [pathname, setPathname] = useState("/addproduct")
   const [newproduct, setNewProduct] = useState({
     title: "",
     link: "",
@@ -22,9 +28,8 @@ const AddProduct = () => {
   });
   useEffect(() => {
     //stores the product in prexisting array
- const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
-  setProduct(storedProducts);
-
+    const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
+    setProduct(storedProducts);
 
     const date = new Date();
     const formatedDate = date.toISOString().split("T")[0];
@@ -87,17 +92,16 @@ const AddProduct = () => {
       price: "",
       description: "",
     });
-    // setTimeout(() => {
-    //   navigate("/Home");
-    // }, 1000);
+   setPathname("/");
   };
   return (
     <div>
       <div className="addproduct">
-         <div className="p-navbar">
-          <Link to={"/"} className="item"><House /></Link>
-          <Link to={"/product"} className="item"><PackageSearch /></Link>
-        </div> 
+        <div className="p-navbar">
+          <Link to={"/"} className="item">
+            <House />
+          </Link>
+        </div>
         <div className="sideform">
           <form>
             <label>Product Name</label>
@@ -185,9 +189,11 @@ const AddProduct = () => {
                 setNewProduct({ ...newproduct, description: e.target.value });
               }}
             />
-            <button type="button" onClick={saveProduct}>
-              Submit
-            </button>
+            <Link to={pathname}>
+              <button type="button" onClick={saveProduct}>
+                Submit
+              </button>
+            </Link>
           </form>
         </div>
         <div className="cardview">
