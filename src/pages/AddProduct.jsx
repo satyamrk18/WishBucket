@@ -124,7 +124,6 @@ const AddProduct = () => {
                 setNewProduct({ ...newproduct, image: e.target.value });
               }}
             />
-            {/* more image feature remain */}
             <label>Product Link</label>
             <input
               type="text"
