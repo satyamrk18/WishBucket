@@ -12,7 +12,7 @@ const Home = () => {
 
   const totalItems = products.length;
   const totalPrice = products.reduce(
-    (acc, product) => acc + (Number(product.price) || 0),
+    (acc, product) => acc + (Number(product.price) || 0.00),
     0
   );
 

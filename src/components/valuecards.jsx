@@ -11,6 +11,7 @@ const valuecards = ({ title, value }) => {
     padding: "20px",
     border: "2px solid rgba(128, 128, 128, 0.272)",
     borderRadius:"10px",
+    backgroundColor:"white"
   };
   return (
     <div style={style}>
