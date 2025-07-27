@@ -1,25 +1,26 @@
-  /* Product.css */
+/* Product.css */
 .cards {
-  padding:50px;
+  padding: 50px;
   gap: 20px;
   display: flex;
   height: auto;
-  justify-content:center;
-  width:auto;
-  overflow-x:hidden;
+  justify-content: center;
+  width: auto;
+  overflow-x: hidden;
 }
 .product-card {
   background-color: #fdfdfd;
-  width:400px;
+  width: 400px;
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.2s ease;
-    border:2px solid black;
+  border: 2px solid black;
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.539);
 }
 
 .p-image img {
@@ -59,6 +60,6 @@
 .description {
   margin-top: 12px;
   font-size: 14px;
-  color: #555;
   line-height: 1.5;
+  height:auto;
 }

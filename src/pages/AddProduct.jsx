@@ -179,7 +179,7 @@ const AddProduct = () => {
             </div>
             <label>Description</label>
             <textarea
-              rows="5"
+              rows="3"
               value={newproduct.description}
               onChange={(e) => {
                 setNewProduct({ ...newproduct, description: e.target.value });
