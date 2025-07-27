@@ -9,7 +9,7 @@ const Navbar = () => {
         <div className="heart">
           <Heart />
         </div>
-        <div class="logo-text">
+        <div className="logo-text">
           <h1>WishBucket</h1>
           <p>Your personal wishlist manager</p>
         </div>

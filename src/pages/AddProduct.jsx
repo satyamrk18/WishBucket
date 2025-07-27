@@ -87,9 +87,9 @@ const AddProduct = () => {
       price: "",
       description: "",
     });
-    setTimeout(() => {
-      navigate("/product");
-    }, 1000);
+    // setTimeout(() => {
+    //   navigate("/Home");
+    // }, 1000);
   };
   return (
     <div>

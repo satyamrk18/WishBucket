@@ -1,11 +1,7 @@
 // Product.jsx
-
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import defaultIMG from "./../assets/default-product-image.png";
-import "./Product.css"; // styling file for product display
-import { House, PackagePlus } from "lucide-react";
-
+import "./Product.css";
+import Card from "./card.jsx";
 const Product = () => {
   const [products, setProducts] = useState([]);
 
@@ -14,58 +10,36 @@ const Product = () => {
     setProducts(storedProducts);
   }, []);
 
-//priority grouping
-
+  //priority grouping
 
   return (
-    <div className="product-page">
-      <div className="p-navbar">
-        <Link to="/" className="item"><House /></Link>
-        <Link to="/addproduct" className="item"><PackagePlus /></Link>
-      </div>
-      <h1>Product Page</h1>
-      <div className="cards">
-        {products.length > 0 ? (
-          products.map((product, index) => {
-            const {
-              title,
-              image,
-              link,
-              price,
-              priority,
-              today,
-              archivedate,
-              description,
-            } = product;
-            return (
-              <div className="product-card" key={index}>
-                <div className="p-image">
-                  <img src={image || defaultIMG} alt="product" />
-                </div>
-                <div className="other-info">
-                  <h2>Title: {title}</h2>
-                  <h2>
-                    Link: <a href={link} target="_blank" rel="noreferrer">{link}</a>
-                  </h2>
-                  <div className="other">
-                    <h2>Price: ₹{price}</h2>
-                    <h2>Priority: {priority}</h2>
-                  </div>
-                  <div className="other">
-                    <h2>Registered: {today}</h2>
-                    <h2>Expected: {archivedate}</h2>
-                  </div>
-                  <div className="description">
-                    <p>{description}</p>
-                  </div>
-                </div>
-              </div>
-            );
-          })
-        ) : (
-          <p>No products found.</p>
-        )}
-      </div>
+    <div className="products">
+      {products.map((product, i) => {
+        const {
+          title,
+          image,
+          link,
+          price,
+          priority,
+          today,
+          archivedate,
+          description,
+        } = product;
+        return (
+          <div key={i}>
+            <Card
+              title={title}
+              image={image}
+              link={link}
+              price={price}
+              priority={priority}
+              today={today}
+              archivedate={archivedate}
+              description={description}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 };
