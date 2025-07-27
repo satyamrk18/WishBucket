@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ValueCards from "./../components/valuecards.jsx";
 import Product from "./product.jsx";
 import "./Home.css";
+import EmptyProduct from "./emptyproduct.jsx"
 const Home = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -23,10 +24,16 @@ const Home = () => {
         <ValueCards title="Total Items" value={totalItems} />
         <ValueCards title="Total Price" value={`₹${totalPrice}`} />
         <ValueCards title="Total Items" value={3} />
-        {/* price rendering remain */}
       </div>
       <div>
-        <Product />
+        {
+          products.length > 0 ?
+          ( <EmptyProduct />):
+          <div>
+           <Product />
+          </div>
+        }
+       
       </div>
     </div>
   );
