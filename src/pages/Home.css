@@ -6,5 +6,12 @@ body {
   height: 100vh;
   padding-top: 50px;
   box-sizing: border-box;
-  
+}
+.valuecards-contianer
+{
+  width:90%;
+  margin:50px auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-evenly;
 }
