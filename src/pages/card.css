@@ -16,8 +16,14 @@
   overflow: hidden;
   transition: transform 0.2s ease;
   border: 1px solid rgba(0, 0, 0, 0.447);
+  position:relative;
 }
-
+.delete 
+{
+  position:absolute;
+  right:5px;
+  top:5px;
+}
 .product-card:hover {
   transform: translateY(-3px);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.539);
