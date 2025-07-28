@@ -138,16 +138,6 @@ textarea:focus {
   background-color: #0056b3;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .sideform {
-    padding: 20px;
-  }
-
-  .sideform form {
-    gap: 10px;
-  }
-}
 
 .cardview {
   width: 40%;
@@ -259,6 +249,21 @@ textarea:focus {
 .description p::-webkit-scrollbar {
   display: none;
 }
+
+/* Responsive */
+@media (max-width:400px) {
+  .sideform {
+    padding: 20px;
+  }
+
+  .sideform form {
+    gap: 10px;
+  }
+  .sideform input {
+    width:90%;
+    margin:0 auto;
+  }
+}
 @media (max-width:800px){
 .cardview
 {
@@ -267,7 +272,12 @@ display:none;
 .sideform
 {
   margin:0 auto;
-  width:100%;
+  width:80%;
+}
+textarea
+{
+margin:0 auto;
+width:90%;
 }
 .dates-container
 {
@@ -280,3 +290,4 @@ display:none;
   top:0px;
 }
 }
+

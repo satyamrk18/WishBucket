@@ -1,7 +1,7 @@
-import Navbar from "./../components/navbar.jsx";
 import { useEffect, useState } from "react";
 import ValueCards from "./../components/valuecards.jsx";
 import Product from "./product.jsx";
+import Navbar from "./../components/navbar.jsx";
 import "./Home.css";
 import EmptyProduct from "./emptyproduct.jsx";
 const Home = () => {
@@ -22,7 +22,11 @@ const Home = () => {
       <Navbar />
       <div className="valuecards-container">
         <ValueCards title="Total Items" value={totalItems} />
-        <ValueCards title="Total Price" value={`₹${totalPrice}`} color="green"/>
+        <ValueCards
+          title="Total Price"
+          value={`₹${totalPrice}`}
+          color="green"
+        />
         <ValueCards
           title="Total Priority"
           value={`${products.length == 0 ? 0 : 3}`}
