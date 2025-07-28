@@ -10,6 +10,13 @@ const Product = () => {
     setProducts(storedProducts);
   }, []);
 
+  const handleDelete = (index) => {
+    const newProducts = [...products];
+    newProducts.splice(index, 1);
+    setProducts(newProducts);
+    localStorage.setItem("products", JSON.stringify(newProducts));
+  };
+
   //priority grouping
 
   return (
@@ -36,6 +43,7 @@ const Product = () => {
               today={today}
               archivedate={archivedate}
               description={description}
+              onDelete={() => handleDelete(i)}
             />
           </div>
         );

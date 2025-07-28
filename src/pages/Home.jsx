@@ -32,7 +32,7 @@ const Home = () => {
           value={`${products.length == 0 ? 0 : 3}`}
         />
       </div>
-      <div>
+      <div >
         {products.length > 0 ? (
           <Product />
         ) : (

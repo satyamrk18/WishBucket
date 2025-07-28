@@ -1,9 +1,9 @@
 import React from 'react'
 import {Trash2} from "lucide-react"
 import "./deletebtn.css"
-const deletebtn = () => {
+const deletebtn = ({ onClick }) => {
   return (
-    <div className='deletebtn'>
+    <div className='deletebtn' onClick={onClick}>
       <Trash2 />
     </div>
   )

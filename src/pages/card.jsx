@@ -2,7 +2,7 @@ import React from "react";
 import defaultIMG from "./../assets/default-product-image.png";
 import Delete from "./../components/deletebtn.jsx"
 import "./card.css";
-import { ssrImportKey } from "vite/module-runner";
+
 const Card = ({
   title,
   image,
@@ -12,11 +12,12 @@ const Card = ({
   today,
   archivedate,
   description,
+  onDelete,
 }) => {
   return (
     <div className="product-card">
     <div className="delete">
- <Delete />
+ <Delete onClick={onDelete} />
     </div>
       <div className="p-image">
         <img src={image || defaultIMG} alt="product" />
