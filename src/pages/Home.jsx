@@ -4,6 +4,7 @@ import Product from "./product.jsx";
 import Navbar from "./../components/navbar.jsx";
 import "./Home.css";
 import EmptyProduct from "./emptyproduct.jsx";
+import Footer from "./../components/footer.jsx"
 const Home = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -41,6 +42,9 @@ const Home = () => {
           </div>
         )}
       </div>
+      <Footer>
+        <Footer />
+      </Footer>
     </div>
   );
 };
