@@ -15,7 +15,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.2s ease;
-  border:1px solid rgba(0, 0, 0, 0.447);
+  border: 1px solid rgba(0, 0, 0, 0.447);
 }
 
 .product-card:hover {
@@ -61,5 +61,21 @@
   margin-top: 12px;
   font-size: 14px;
   line-height: 1.5;
-  height:auto;
+  height: auto;
+}
+
+@media (max-width: 400px) {
+  .product-card {
+    width:90%;
+    min-width:90%;
+    font-size: 10px;
+    margin:10px;
+  }
+  .p-image img {
+    height: 150px;
+  }
+  .other-info h2,
+  .other {
+    font-size: 10px;
+  }
 }
