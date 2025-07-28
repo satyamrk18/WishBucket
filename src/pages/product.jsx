@@ -10,11 +10,14 @@ const Product = () => {
     setProducts(storedProducts);
   }, []);
 
-  const handleDelete = (index) => {
-    const newProducts = [...products];
+ const handleDelete = (index) => {
+   if(confirm("Do you want to remove ?") == true)
+   {
+     const newProducts = [...products];
     newProducts.splice(index, 1);
     setProducts(newProducts);
     localStorage.setItem("products", JSON.stringify(newProducts));
+   }
   };
 
   //priority grouping

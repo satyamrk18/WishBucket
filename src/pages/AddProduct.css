@@ -8,12 +8,12 @@
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-position:relative;
+  position: relative;
 }
 .p-navbar {
   width: 15%;
   padding: 5px;
-  position:absolute;
+  position: absolute;
   left: 10px;
   top: 35px;
   display: flex;
@@ -21,11 +21,11 @@ position:relative;
   gap: 25px;
 }
 .item {
-  border: 2px solid black;
   padding: 10px;
   border-radius: 5px;
   text-decoration: none;
-  color: black;
+  color: white;
+  background: linear-gradient(to right, #8b5cf6, #ec4899);
 }
 .sideform {
   width: 60%;
@@ -137,7 +137,6 @@ textarea:focus {
 .sideform button:hover {
   background-color: #0056b3;
 }
-
 
 .cardview {
   width: 40%;
@@ -251,7 +250,7 @@ textarea:focus {
 }
 
 /* Responsive */
-@media (max-width:400px) {
+@media (max-width: 400px) {
   .sideform {
     padding: 20px;
   }
@@ -260,47 +259,36 @@ textarea:focus {
     gap: 10px;
   }
   .sideform input {
-    width:90%;
-    margin:0 auto;
+    width: 90%;
+    margin: 0 auto;
   }
-  .item
-  {
-    height:25px;
-    width:fit-content;
-    padding:2px;
-    color:white;
-    background: linear-gradient(
-    to right,
-    #8b5cf6,
-    #ec4899
-  );
-  border:none;
+  .item {
+    height: 25px;
+    width: fit-content;
+    padding: 2px;
+    color: white;
+    border: none;
   }
 }
-@media (max-width:800px){
-.cardview
-{
-display:none;
+@media (max-width: 800px) {
+  .cardview { 
+    display: none;
+  }
+  .sideform {
+    margin: 0 auto;
+    width: 80%;
+  }
+  textarea {
+    margin: 0 auto;
+    width: 90%;
+  }
+  .dates-container {
+    display: block;
+    margin: 10px;
+  }
+  .p-navbar {
+    position: absolute;
+    left: 10px;
+    top: 0px;
+  }
 }
-.sideform
-{
-  margin:0 auto;
-  width:80%;
-}
-textarea
-{
-margin:0 auto;
-width:90%;
-}
-.dates-container
-{
-  display:block;
-  margin:10px;
-}
-.p-navbar{
-    position:absolute;
-  left: 10px;
-  top:0px;
-}
-}
-
