@@ -16,7 +16,7 @@ const Navbar = () => {
       </div>
 
       {/* ita all gos to the search bar as pages input */}
-      <div>
+      <div className="btn">
         <Link to="/addproduct" className="nav-item">
           <Plus />
           Add Product

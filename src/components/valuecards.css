@@ -9,6 +9,10 @@
   border-radius: 10px;
   background-color: white;
 }
+.valuetitle
+{
+ color:black;
+}
 @media (max-width: 400px) {
   .valuecard {
     padding: 0px;
@@ -19,5 +23,10 @@
 .value 
 {
     font-size:18px;
+}
+.valuetitle
+{
+  text-align:center;
+  color:black;
 }
 }

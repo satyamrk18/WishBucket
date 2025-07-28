@@ -22,7 +22,7 @@ const Home = () => {
       <Navbar />
       <div className="valuecards-container">
         <ValueCards title="Total Items" value={totalItems} />
-        <ValueCards title="Total Price" value={`₹${totalPrice}`} />
+        <ValueCards title="Total Price" value={`₹${totalPrice}`} color="green"/>
         <ValueCards
           title="Total Priority"
           value={`${products.length == 0 ? 0 : 3}`}
