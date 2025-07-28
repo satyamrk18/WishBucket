@@ -7,7 +7,7 @@ const emptyproduct = () => {
     <div className='noproduct'>
      <h1><Heart /></h1>
      <h1>No Product Yet</h1>
-     <p>Start building your wishlist by adding your first product!</p>
+     <p className='tagline'>Start building your wishlist by adding your first product!</p>
     <Link to="/addproduct"><button><Plus />Add Your First Product</button></Link>
     </div>
   )
