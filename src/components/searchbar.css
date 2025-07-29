@@ -1,0 +1,15 @@
+.searchbar {
+  margin: 0;
+  width: 60vw;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  outline: none;
+}
+input:hover {
+  outline: none;
+  border: 1px solid rgb(230, 138, 138);
+}
+input:active {
+  border: 1px solid rgb(230, 138, 138);
+}

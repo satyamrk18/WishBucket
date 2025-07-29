@@ -4,7 +4,10 @@ import Product from "./product.jsx";
 import Navbar from "./../components/navbar.jsx";
 import "./Home.css";
 import EmptyProduct from "./emptyproduct.jsx";
+import Search from "./../components/searchbar.jsx"
 import Footer from "./../components/footer.jsx"
+import { MailWarning } from "lucide-react";
+
 const Home = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -33,9 +36,12 @@ const Home = () => {
           value={`${products.length == 0 ? 0 : 3}`}
         />
       </div>
-      <div >
+      <div>
         {products.length > 0 ? (
-          <Product />
+        <div className="search-and-card-container">
+          <div><Search/></div>
+        <div className="main-card"><Product /></div>
+        </div>
         ) : (
           <div>
             <EmptyProduct />

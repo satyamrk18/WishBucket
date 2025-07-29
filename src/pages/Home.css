@@ -16,3 +16,18 @@ body {
   align-items:center;
   justify-content:space-evenly;
 }
+.search-and-card-container
+{
+  display:flex;
+  align-items:center; 
+  gap:10px;
+  flex-direction:column;
+
+}
+.main-card
+{
+  display:flex;
+  width:100%;
+  align-items:center;
+  justify-content:center;
+}
