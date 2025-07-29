@@ -4,7 +4,7 @@ import Product from "./product.jsx";
 import Navbar from "./../components/navbar.jsx";
 import "./Home.css";
 import EmptyProduct from "./emptyproduct.jsx";
-import Footer from "./../components/footer.jsx"
+import Footer from "./../components/footer.jsx";
 
 
 const Home = () => {
@@ -32,23 +32,21 @@ const Home = () => {
         />
         <ValueCards
           title="Total Priority"
-          value={`${products.length == 0 ? 0 : 3}`}
+          value={`${products.length === 0 ? 0 : 3}`}
         />
       </div>
       <div>
         {products.length > 0 ? (
-        <div className="search-and-card-container">
-        <div className="main-card"><Product /></div>
-        </div>
+          <div className="search-and-card-container">
+            <div className="main-card"><Product /></div>
+          </div>
         ) : (
           <div>
             <EmptyProduct />
           </div>
         )}
       </div>
-      <Footer>
-        <Footer />
-      </Footer>
+      <Footer />
     </div>
   );
 };

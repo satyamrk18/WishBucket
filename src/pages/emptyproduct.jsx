@@ -2,9 +2,9 @@ import React from 'react'
 import "./emptyproduct.css"
 import { Link } from 'react-router-dom'
 import {Heart, Plus} from "lucide-react"
-const emptyproduct = () => {
+const EmptyProduct = () => {
   return (
-    <div className='noproduct'>
+    <div className='no-product'>
      <h1><Heart /></h1>
      <h1>No Product Yet</h1>
      <p className='tagline'>Start building your wishlist by adding your first product!</p>
@@ -13,4 +13,4 @@ const emptyproduct = () => {
   )
 }
 
-export default emptyproduct
+export default EmptyProduct

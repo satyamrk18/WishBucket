@@ -44,7 +44,7 @@ const Product = () => {
               price={price}
               priority={priority}
               today={today}
-              archivedate={archivedate}
+              archiveDate={archivedate}
               description={description}
               onDelete={() => handleDelete(i)}
             />

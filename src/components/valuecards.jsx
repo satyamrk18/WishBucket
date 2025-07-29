@@ -1,7 +1,7 @@
 import { Radius } from "lucide-react";
 import React from "react";
 import "./valuecards.css";
-const valuecards = ({ title, value,color}) => {
+const ValueCards = ({ title, value,color}) => {
   return (
     <div className="valuecard" style={{color:`${color}`}}>
       <h3 className="valuetitle">{title}</h3>
@@ -10,4 +10,4 @@ const valuecards = ({ title, value,color}) => {
   );
 };
 
-export default valuecards;
+export default ValueCards;

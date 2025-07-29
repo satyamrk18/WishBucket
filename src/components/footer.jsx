@@ -1,7 +1,7 @@
 import React from "react";
 import "./footer.css";
 import { Github, Linkedin, MailPlus, CircleParking } from "lucide-react";
-const footer = () => {
+const Footer = () => {
   return (
     <div className="footer">
       <div className="socialmedia-container">
@@ -23,4 +23,4 @@ const footer = () => {
   );
 };
 
-export default footer;
+export default Footer;

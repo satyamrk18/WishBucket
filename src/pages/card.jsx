@@ -10,7 +10,7 @@ const Card = ({
   price,
   priority,
   today,
-  archivedate,
+  archiveDate,
   description,
   onDelete,
 }) => {
@@ -36,7 +36,7 @@ const Card = ({
         </div>
         <div className="other">
           <h2>Registered: {today}</h2>
-          <h2>Expected: {archivedate}</h2>
+          <h2>Expected: {archiveDate}</h2>
         </div>
         <p>Description : {description}</p>
       </div>
