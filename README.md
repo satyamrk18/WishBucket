@@ -1,12 +1,86 @@
-# React + Vite
+# WishBucket
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+WishBucket is a personal wishlist manager built with React. It allows users to add products they wish to buy, view their wishlist, and manage product details such as price, priority, and expected purchase date.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Add products to your wishlist with details like title, price, priority, description, and expected purchase date.
+- View all products in a clean, user-friendly interface.
+- Delete products from the wishlist.
+- View summary cards showing total items, total price, and total priority.
+- Responsive design with navigation and footer components.
+- Data persistence using browser localStorage.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd Wish-Bucket
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+## Usage
+
+To start the development server, run:
+
+```bash
+npm run dev
+```
+
+This will start the app locally. Open your browser and navigate to `http://localhost:3000` to view the app.
+
+## Folder Structure
+
+```
+Wish-Bucket/
+├── public/                  # Static assets
+├── src/
+│   ├── assets/              # Images and icons
+│   ├── components/          # Reusable React components (Navbar, Footer, Cards, etc.)
+│   ├── pages/               # Page components (Home, Product, AddProduct, etc.)
+│   ├── App.jsx              # Main app component with routing
+│   ├── main.jsx             # React app entry point
+│   └── index.css            # Global styles
+├── package.json             # Project metadata and dependencies
+├── vite.config.js           # Vite configuration
+└── README.md                # Project documentation
+```
+
+## Technologies Used
+
+- React 19
+- React Router DOM
+- Vite (build tool)
+- Lucide React (icons)
+- CSS Modules for styling
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+For any questions or feedback, please contact:
+
+- Email: satyamrk18@gmail.com
+- GitHub: [satyamrk18](https://github.com/satyamrk18)
+- LinkedIn: [Satyam Katkade](https://www.linkedin.com/in/satyam-katkade-4ba389279/)
+
+---
+Thank you for using WishBucket!
