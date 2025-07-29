@@ -37,9 +37,7 @@ const Home = () => {
       </div>
       <div>
         {products.length > 0 ? (
-          <div className="search-and-card-container">
-            <div className="main-card"><Product /></div>
-          </div>
+         <Product />
         ) : (
           <div>
             <EmptyProduct />
