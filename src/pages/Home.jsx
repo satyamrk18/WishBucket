@@ -4,6 +4,7 @@ import Product from "./product.jsx";
 import Navbar from "./../components/navbar.jsx";
 import "./Home.css";
 import EmptyProduct from "./emptyproduct.jsx";
+import Heading from "./../components/heading.jsx"
 import Footer from "./../components/footer.jsx";
 
 
@@ -23,6 +24,7 @@ const Home = () => {
   return (
     <div className="container">
       <Navbar />
+      <div className="main-heading"><Heading /></div>
       <div className="valuecards-container">
         <ValueCards title="Total Items" value={totalItems} />
         <ValueCards

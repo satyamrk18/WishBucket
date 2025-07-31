@@ -8,6 +8,12 @@ body {
   padding-top: 50px;
   box-sizing: border-box;
 }
+.main-heading
+{
+width:100%;
+text-align:center;
+margin-top:60px;
+}
 .valuecards-container
 {
   width:90%;

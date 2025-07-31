@@ -1,0 +1,53 @@
+span 
+{
+    color:rgb(191, 0, 255);
+}
+.heading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.typing-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 6s steps(60, end) forwards, blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+@media (max-width:600px)
+{
+    .heading-title
+    {
+        font-size:1rem;
+    }
+}
+@media (min-width:601px) and (max-width:900px)
+{
+    .heading-title
+    {
+        font-size:1.5rem;
+    }
+}
