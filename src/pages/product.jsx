@@ -2,6 +2,10 @@
 import React, { useEffect, useState } from "react";
 import "./product.css";
 import Card from "./card.jsx";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+
+
 const Product = () => {
   const [products, setProducts] = useState([]);
 
@@ -9,7 +13,12 @@ const Product = () => {
     const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
     setProducts(storedProducts);
   }, []);
-
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
  const handleDelete = (index) => {
    if(confirm("Do you want to remove ?") == true)
    {
@@ -36,7 +45,7 @@ const Product = () => {
           description,
         } = product;
         return (
-          <div key={i}>
+          <div key={i}  data-aos="zoom-in-down"> 
             <Card
               title={title}
               image={image}
