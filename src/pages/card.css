@@ -40,8 +40,15 @@
 
 .other-info {
   padding: 15px;
-}
+  display:flex;
+  flex-direction:column;
+  justify-content:space-evenly;
 
+}
+h2{
+  text-align:center;
+
+}
 .other-info h2 {
   font-size: 16px;
   margin: 8px 0;
@@ -60,9 +67,15 @@
 }
 
 .other {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
+display:flex;
+align-items:center;
+justify-content:space-evenly;
+}
+.sub-dates
+{
+  display:flex;
+  flex-direction:column;
+align-items:center;
 }
 
 .description {
@@ -70,6 +83,25 @@
   font-size: 14px;
   line-height: 1.5;
   height: auto;
+}
+.pricetag
+{
+  font-size:20px;
+  font-weight:600;
+  color:green;
+}
+a{
+  display:flex;
+  align-content:center;
+  gap:10px;
+}
+.othe-dates
+{
+  display:flex;
+  width:100%;
+  justify-content:space-between;
+  align-items:center;
+  text-align:center
 }
 
 @media (max-width: 400px) {
