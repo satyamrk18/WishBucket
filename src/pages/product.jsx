@@ -26,6 +26,7 @@ const Product = () => {
     newProducts.splice(index, 1);
     setProducts(newProducts);
     localStorage.setItem("products", JSON.stringify(newProducts));
+    window.location.replace("/");
    }
   };
 

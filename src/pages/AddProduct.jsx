@@ -8,6 +8,7 @@ import {
   CalendarHeart,
   CalendarSearch,
   House,
+  ImageUp,
 } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 const AddProduct = () => {
@@ -113,9 +114,11 @@ window.location.replace("/")
               }}
             />
             <label>Product Image</label>
-            <input
+            <div style={{display:"flex",alignItems:"center",cursor:"pointer", border:"1px solid #ccc", borderRadius:"7px"}}>
+              <input
               type="file"
               accept="image/*"
+              style={{cursor:"pointer",border:"none"}}
               name="product Link"
               onChange={(e) => {
                 const file = e.target.files[0];
@@ -131,7 +134,8 @@ window.location.replace("/")
                   reader.readAsDataURL(file); // Convert to base64
                 }
               }}
-            />
+            /><ImageUp size={35} />
+            </div>
             <label>Product Link</label>
             <input
               type="text"
