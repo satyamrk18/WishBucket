@@ -15,7 +15,7 @@ const AddProduct = () => {
   const navigate = useNavigate(); // navigator after successfully submission
   const [today, setToday] = useState("");
   const [product, setProduct] = useState([]);
-  const [pathname, setPathname] = useState("/addproduct")
+  const [pathname, setPathname] = useState("/addproduct");
   const [newproduct, setNewProduct] = useState({
     title: "",
     link: "",
@@ -92,7 +92,7 @@ const AddProduct = () => {
       price: "",
       description: "",
     });
-   setPathname("/");
+    setPathname("/");
   };
   return (
     <div>
@@ -116,12 +116,22 @@ const AddProduct = () => {
             />
             <label>Product Image</label>
             <input
-              type="text"
-              placeholder="Enter product image address"
-              value={newproduct.image}
+              type="file"
+              accept="image/*"
               name="product Link"
               onChange={(e) => {
-                setNewProduct({ ...newproduct, image: e.target.value });
+                const file = e.target.files[0];
+                if (file) {
+                  const reader = new FileReader();
+                  reader.onload = () => {
+                    const base64 = reader.result;
+                    // Save to state
+                    setNewProduct({ ...newproduct, image: base64 });
+                    // Save to localStorage
+                    localStorage.setItem("productImage", base64);
+                  };
+                  reader.readAsDataURL(file); // Convert to base64
+                }
               }}
             />
             <label>Product Link</label>
