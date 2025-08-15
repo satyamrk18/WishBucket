@@ -35,7 +35,6 @@ const Card = ({
         </div>
         <div className="othe-dates">
           <div>
-            {" "}
             <h2><CalendarClock size={20} color={"#8b5cf6"}/> {" "}Registered: </h2>
             <h2><CalendarHeart size={20} color={"#ec4899"}/> {" "}Expected: </h2>
           </div>

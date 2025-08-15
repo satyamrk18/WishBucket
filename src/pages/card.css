@@ -85,6 +85,11 @@ h2 {
   font-weight: 600;
   color: green;
 }
+.other h2{
+  border:1px solid black;
+  padding:5px;
+  border-radius:7px;
+}
 a {
   display: flex;
   align-content: center;
