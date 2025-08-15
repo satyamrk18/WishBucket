@@ -26,7 +26,7 @@ const Card = ({
         <p style={{textAlign:"center",fontSize:"25px", fontWeight:"600"}}>{title}</p>
         <h2>
           <a href={link} target="_blank" rel="noreferrer">
-            <SquareArrowOutUpRight/>{link}
+            <SquareArrowOutUpRight size={20}/>{link}
           </a>
         </h2>
         <div className="other">
@@ -36,8 +36,8 @@ const Card = ({
         <div className="othe-dates">
           <div>
             {" "}
-            <h2><CalendarClock style={{color:"8b5cf6"}}/> {" "}Registered: </h2>
-            <h2><CalendarHeart style={{color:"#ec4899"}} /> {" "}Expected: </h2>
+            <h2><CalendarClock size={20} color={"#8b5cf6"}/> {" "}Registered: </h2>
+            <h2><CalendarHeart size={20} color={"#ec4899"}/> {" "}Expected: </h2>
           </div>
           <div className="sub-dates">
             <h2>{today} </h2>

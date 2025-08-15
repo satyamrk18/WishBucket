@@ -7,7 +7,6 @@
   justify-content: center;
   width: auto;
   overflow-x: hidden;
-
 }
 .product-card {
   background-color: #fdfdfd;
@@ -17,18 +16,18 @@
   overflow: hidden;
   transition: transform 0.2s ease;
   border: 1px solid rgba(0, 0, 0, 0.447);
-  position:relative;
-  margin:20px;
+  position: relative;
+  margin: 20px;
 }
-.delete 
-{
-  position:absolute;
-  right:5px;
-  top:5px;
+.delete {
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
 .product-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.539);
+  transform:scale(1.03);
+  cursor:pointer;
+  box-shadow:5px 5px 10px rgba(0, 0, 0, 0.103);
 }
 
 .p-image img {
@@ -40,14 +39,12 @@
 
 .other-info {
   padding: 15px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-evenly;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
-h2{
-  text-align:center;
-
+h2 {
+  text-align: center;
 }
 .other-info h2 {
   font-size: 16px;
@@ -67,15 +64,14 @@ h2{
 }
 
 .other {
-display:flex;
-align-items:center;
-justify-content:space-evenly;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
-.sub-dates
-{
-  display:flex;
-  flex-direction:column;
-align-items:center;
+.sub-dates {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .description {
@@ -84,32 +80,30 @@ align-items:center;
   line-height: 1.5;
   height: auto;
 }
-.pricetag
-{
-  font-size:20px;
-  font-weight:600;
-  color:green;
+.pricetag {
+  font-size: 20px;
+  font-weight: 600;
+  color: green;
 }
-a{
-  display:flex;
-  align-content:center;
-  gap:10px;
+a {
+  display: flex;
+  align-content: center;
+  gap: 10px;
 }
-.othe-dates
-{
-  display:flex;
-  width:100%;
-  justify-content:space-between;
-  align-items:center;
-  text-align:center
+.othe-dates {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
 }
 
 @media (max-width: 400px) {
   .product-card {
-    width:90%;
-    min-width:90%;
+    width: 90%;
+    min-width: 90%;
     font-size: 10px;
-    margin:10px;
+    margin: 10px;
   }
   .p-image img {
     height: 150px;
