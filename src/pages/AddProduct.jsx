@@ -8,14 +8,12 @@ import {
   CalendarHeart,
   CalendarSearch,
   House,
-  PackageSearch,
 } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 const AddProduct = () => {
   const navigate = useNavigate(); // navigator after successfully submission
   const [today, setToday] = useState("");
   const [product, setProduct] = useState([]);
-  const [pathname, setPathname] = useState("/addproduct");
   const [newproduct, setNewProduct] = useState({
     title: "",
     link: "",
@@ -92,7 +90,7 @@ const AddProduct = () => {
       price: "",
       description: "",
     });
-    setPathname("/");
+window.location.replace("/")
   };
   return (
     <div>
@@ -198,7 +196,7 @@ const AddProduct = () => {
                 setNewProduct({ ...newproduct, description: e.target.value });
               }}
             />
-            <Link to={pathname}>
+            <Link>
               <button type="button" onClick={saveProduct}>
                 Submit
               </button>
