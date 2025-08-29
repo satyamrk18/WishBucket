@@ -49,6 +49,8 @@ const AddProduct = () => {
   }, [newproduct.title, newproduct.description]);
   //save data
   const saveProduct = () => {
+    console.log("Save product called with data:", newproduct);
+    
     if (!newproduct.title.trim()) {
       toast.error("opps! The title feild remain empty, please complete it .");
       return;
@@ -66,13 +68,16 @@ const AddProduct = () => {
 
     // Add today's date to product
     const newProductEntry = { ...newproduct, today };
+    console.log("New product entry:", newProductEntry);
 
     // Add new product to current list
     const updatedProducts = [...product, newProductEntry];
+    console.log("Updated products list:", updatedProducts);
 
     // Update state and localStorage
     setProduct(updatedProducts);
     localStorage.setItem("products", JSON.stringify(updatedProducts));
+    console.log("Product saved to localStorage");
 
     toast.success("Product saved successfully!");
 
@@ -86,22 +91,32 @@ const AddProduct = () => {
       price: "",
       description: "",
     });
-    window.location.replace("/");
-
+    
+    console.log("Navigating to home page");
+    navigate("/");
   };
-  //file hadling for upload and capture
+  //file handling for upload and capture
   const handleUploadCapture = (e) => {
     const file = e.target.files[0];
     if (file) {
+      console.log("File selected:", file.name, file.type, file.size);
       const reader = new FileReader();
       reader.onload = () => {
         const base64 = reader.result;
+        console.log("Image converted to base64 successfully");
         // Save to state
         setNewProduct({ ...newproduct, image: base64 });
         // Save to localStorage
         localStorage.setItem("productImage", base64);
+        toast.success("Image uploaded successfully!");
+      };
+      reader.onerror = (error) => {
+        console.error("Error reading file:", error);
+        toast.error("Failed to process image. Please try again.");
       };
       reader.readAsDataURL(file); // Convert to base64
+    } else {
+      console.log("No file selected");
     }
   };
   return (
@@ -213,11 +228,9 @@ const AddProduct = () => {
                 setNewProduct({ ...newproduct, description: e.target.value });
               }}
             />
-            <Link>
-              <button type="button" onClick={saveProduct}>
-                Submit
-              </button>
-            </Link>
+            <button type="button" onClick={saveProduct}>
+              Submit
+            </button>
           </form>
         </div>
         <div className="cardview">
