@@ -154,7 +154,6 @@ const AddProduct = () => {
               <input
                 type="file"
                 accept="image/*"
-                capture="environment"
                 style={{ cursor: "pointer", border: "none" }}
                 name="productImage"
                 onChange={handleUploadCapture}
