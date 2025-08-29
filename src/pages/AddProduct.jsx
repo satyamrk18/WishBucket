@@ -4,12 +4,7 @@ import "./AddProduct.css";
 import { useNavigate } from "react-router-dom";
 import defaultIMG from "./../assets/default-product-image.png";
 import { useState, useEffect } from "react";
-import {
-  CalendarHeart,
-  CalendarSearch,
-  House,
-  ImageUp,
-} from "lucide-react";
+import { CalendarHeart, CalendarSearch, House, ImageUp } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 const AddProduct = () => {
   const navigate = useNavigate(); // navigator after successfully submission
@@ -91,7 +86,23 @@ const AddProduct = () => {
       price: "",
       description: "",
     });
-window.location.replace("/")
+    window.location.replace("/");
+
+  };
+  //file hadling for upload and capture
+  const handleUploadCapture = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const base64 = reader.result;
+        // Save to state
+        setNewProduct({ ...newproduct, image: base64 });
+        // Save to localStorage
+        localStorage.setItem("productImage", base64);
+      };
+      reader.readAsDataURL(file); // Convert to base64
+    }
   };
   return (
     <div>
@@ -114,42 +125,29 @@ window.location.replace("/")
               }}
             />
             <label>Product Image</label>
-            <div style={{display:"flex",alignItems:"center",cursor:"pointer", border:"1px solid #ccc", borderRadius:"7px"}}>
-              <input
-              type="file"
-              accept="image/*"
-              style={{cursor:"pointer",border:"none"}}
-              name="product Link"
-              onChange={(e) => {
-                const file = e.target.files[0];
-                if (file) {
-                  const reader = new FileReader();
-                  reader.onload = () => {
-                    const base64 = reader.result;
-                    // Save to state
-                    setNewProduct({ ...newproduct, image: base64 });
-                    // Save to localStorage
-                    localStorage.setItem("productImage", base64);
-                  };
-                  reader.readAsDataURL(file); // Convert to base64
-                }
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
+                cursor: "pointer",
+                border: "1px solid #ccc",
+                borderRadius: "7px",
               }}
-            /><ImageUp size={35} />
-            <p>or click a picture</p>
-            <input type="file" capture="camera" onChange={(e) => {
-                const file = e.target.files[0];
-                if (file) {
-                  const reader = new FileReader();
-                  reader.onload = () => {
-                    const base64 = reader.result;
-                    // Save to state
-                    setNewProduct({ ...newproduct, image: base64 });
-                    // Save to localStorage
-                    localStorage.setItem("productImage", base64);
-                  };
-                  reader.readAsDataURL(file); // Convert to base64
-                }
-              }}/>
+            >
+              <input
+                type="file"
+                accept="image/*"
+                style={{ cursor: "pointer", border: "none" }}
+                name="product Link"
+                onChange={handleUploadCapture}
+              />
+              <p>or click a picture</p>
+              <input
+                type="file"
+                capture="camera"
+                onChange={handleUploadCapture}
+              />
             </div>
             <label>Product Link</label>
             <input
