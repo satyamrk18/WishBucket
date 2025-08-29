@@ -135,6 +135,21 @@ window.location.replace("/")
                 }
               }}
             /><ImageUp size={35} />
+            <p>or click a picture</p>
+            <input type="file" capture="camera" onChange={(e) => {
+                const file = e.target.files[0];
+                if (file) {
+                  const reader = new FileReader();
+                  reader.onload = () => {
+                    const base64 = reader.result;
+                    // Save to state
+                    setNewProduct({ ...newproduct, image: base64 });
+                    // Save to localStorage
+                    localStorage.setItem("productImage", base64);
+                  };
+                  reader.readAsDataURL(file); // Convert to base64
+                }
+              }}/>
             </div>
             <label>Product Link</label>
             <input
