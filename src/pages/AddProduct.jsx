@@ -4,7 +4,12 @@ import "./AddProduct.css";
 import { useNavigate } from "react-router-dom";
 import defaultIMG from "./../assets/default-product-image.png";
 import { useState, useEffect } from "react";
-import { CalendarHeart, CalendarSearch, House, ImageUp } from "lucide-react";
+import {
+  CalendarHeart,
+  CalendarSearch,
+  House,
+  ImageUp,
+} from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 const AddProduct = () => {
   const navigate = useNavigate(); // navigator after successfully submission
@@ -49,8 +54,6 @@ const AddProduct = () => {
   }, [newproduct.title, newproduct.description]);
   //save data
   const saveProduct = () => {
-    console.log("Save product called with data:", newproduct);
-    
     if (!newproduct.title.trim()) {
       toast.error("opps! The title feild remain empty, please complete it .");
       return;
@@ -68,16 +71,13 @@ const AddProduct = () => {
 
     // Add today's date to product
     const newProductEntry = { ...newproduct, today };
-    console.log("New product entry:", newProductEntry);
 
     // Add new product to current list
     const updatedProducts = [...product, newProductEntry];
-    console.log("Updated products list:", updatedProducts);
 
     // Update state and localStorage
     setProduct(updatedProducts);
     localStorage.setItem("products", JSON.stringify(updatedProducts));
-    console.log("Product saved to localStorage");
 
     toast.success("Product saved successfully!");
 
@@ -91,33 +91,28 @@ const AddProduct = () => {
       price: "",
       description: "",
     });
-    
-    console.log("Navigating to home page");
-    navigate("/");
+window.location.replace("/")
   };
-  //file handling for upload and capture
-  const handleUploadCapture = (e) => {
+  const handleUploadCapture = async (e) => {
     const file = e.target.files[0];
-    if (file) {
-      console.log("File selected:", file.name, file.type, file.size);
-      const reader = new FileReader();
-      reader.onload = () => {
-        const base64 = reader.result;
-        console.log("Image converted to base64 successfully");
-        // Save to state
-        setNewProduct({ ...newproduct, image: base64 });
-        // Save to localStorage
-        localStorage.setItem("productImage", base64);
-        toast.success("Image uploaded successfully!");
-      };
-      reader.onerror = (error) => {
-        console.error("Error reading file:", error);
-        toast.error("Failed to process image. Please try again.");
-      };
-      reader.readAsDataURL(file); // Convert to base64
-    } else {
-      console.log("No file selected");
-    }
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append("image", file);
+
+    // Replace YOUR_API_KEY with your ImgBB API key
+    const response = await fetch(
+      "https://api.imgbb.com/1/upload?key=014e366d2b738301b03bd2a946dc548f",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+    const result = await response.json();
+    const imageURL = result.data.url;
+    console.log("Image URL:", result.data.url); // Hosted URL
+    setNewProduct({...newproduct, image:imageURL});
   };
   return (
     <div>
@@ -140,33 +135,35 @@ const AddProduct = () => {
               }}
             />
             <label>Product Image</label>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "column",
-                cursor: "pointer",
-                border: "1px solid #ccc",
-                borderRadius: "7px",
-                padding: "10px",
-              }}
-            >
+            <div style={{display:"flex",alignItems:"center",flexDirection:"column",cursor:"pointer", border:"1px solid #ccc", borderRadius:"7px"}}>
               <input
-                type="file"
-                accept="image/*"
-                style={{ cursor: "pointer", border: "none" }}
-                name="productImage"
-                onChange={handleUploadCapture}
-              />
-              <p style={{ margin: "5px 0", fontSize: "12px", color: "#666" }}>
-                Upload image or use camera
-              </p>
+              type="file"
+              accept="image/*"
+              style={{cursor:"pointer",border:"none"}}
+              name="product Link"
+              onChange={(e) => {
+                const file = e.target.files[0];
+                if (file) {
+                  const reader = new FileReader();
+                  reader.onload = () => {
+                    const base64 = reader.result;
+                    // Save to state
+                    setNewProduct({ ...newproduct, image: base64 });
+                    // Save to localStorage
+                    localStorage.setItem("productImage", base64);
+                  };
+                  reader.readAsDataURL(file); // Convert to base64
+                }
+              }}
+            />
+            <p>or click a picture</p>
+            <input type="file" capture="camera" onChange={handleUploadCapture}/>
             </div>
             <label>Product Link</label>
             <input
               type="text"
               placeholder="Product Link"
-              name="product image url"
+              name="product url"
               value={newproduct.link}
               onChange={(e) => {
                 setNewProduct({ ...newproduct, link: e.target.value });
@@ -226,9 +223,11 @@ const AddProduct = () => {
                 setNewProduct({ ...newproduct, description: e.target.value });
               }}
             />
-            <button type="button" onClick={saveProduct}>
-              Submit
-            </button>
+            <Link>
+              <button type="button" onClick={saveProduct}>
+                Submit
+              </button>
+            </Link>
           </form>
         </div>
         <div className="cardview">
