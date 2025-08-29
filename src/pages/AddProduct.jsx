@@ -148,21 +148,20 @@ const AddProduct = () => {
                 cursor: "pointer",
                 border: "1px solid #ccc",
                 borderRadius: "7px",
+                padding: "10px",
               }}
             >
               <input
                 type="file"
                 accept="image/*"
+                capture="environment"
                 style={{ cursor: "pointer", border: "none" }}
-                name="product Link"
+                name="productImage"
                 onChange={handleUploadCapture}
               />
-              <p>or click a picture</p>
-              <input
-                type="file"
-                capture="camera"
-                onChange={handleUploadCapture}
-              />
+              <p style={{ margin: "5px 0", fontSize: "12px", color: "#666" }}>
+                Upload image or use camera
+              </p>
             </div>
             <label>Product Link</label>
             <input
