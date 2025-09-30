@@ -1,6 +1,5 @@
 // Product.jsx
 import React, { useEffect, useState } from "react";
-import "./product.css";
 import Card from "./card.jsx";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
@@ -33,7 +32,7 @@ const Product = () => {
   //priority grouping
 
   return (
-    <div className="products">
+    <div className="flex items-center justify-evenly overflow-x-hidden flex-wrap">
       {products.map((product, i) => {
         const {
           title,
