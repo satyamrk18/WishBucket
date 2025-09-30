@@ -6,18 +6,18 @@ const Footer = () => {
     <div className="footer">
       <div className="socialmedia-container">
        <a href="https://github.com/satyamrk18" target="new">
-          <Github className="social-icon"/>
+          <Github className="social-icon" size={45}/>
         </a>
         <a
           href="https://www.linkedin.com/in/satyam-katkade-4ba389279/"
           target="new"
         >
-          <Linkedin className="social-icon"/>
+          <Linkedin className="social-icon" size={45}/>
         </a>
         <a href="mailto:satyamrk18@gmail.com?subject=Hello%20Satyam&body=This%20is%20a%20test%20mail%20from%20my%20app" target="new">
-          <MailPlus className="social-icon"/>
+          <MailPlus className="social-icon" size={45}/>
         </a>
-        <a href="https://peerlist.io/satyamrk18" target="new"><CircleParking  className="social-icon"/></a>
+        <a href="https://peerlist.io/satyamrk18" target="new"><CircleParking  className="social-icon" size={45}/></a>
       </div>
     </div>
   );

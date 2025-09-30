@@ -1,9 +1,8 @@
 import React from 'react'
 import {Trash2} from "lucide-react"
-import "./deletebtn.css"
 const Deletebtn = ({ onClick }) => {
   return (
-    <div className='deletebtn' onClick={onClick}>
+    <div className='bg-red-600 text-white rounded-2xl p-2 cursor-pointer' onClick={onClick}>
       <Trash2 />
     </div>
   )
